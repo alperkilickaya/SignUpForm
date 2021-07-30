@@ -1,25 +1,25 @@
-const loginForm = document.getElementById("registerForm");
-let email = document.getElementsByName("email")[0];
+const loginForm = document.getElementById("registerForm"); // formu yakala
+let email = document.getElementsByName("email")[0]; // email alanını yakala
 
 
-loginForm.addEventListener("submit", function(e){
+loginForm.addEventListener("submit", function(e){ // formun std submit olma durumunu engelle
     e.preventDefault();
 })
 
-function gonder(){
-    let password = document.getElementsByName("password")[0];
+function gonder(){ // login butonuna basılınca çalışan fonksiyon
+    let password = document.getElementsByName("password")[0];// şifre alanı
 
-    const regexPattern = /\S+\@+\S+\.+\S{3}/
+    const regexPattern = /\S+\@+\S+\.+\S{3}/ // regex paternim. 
 
-    if(email.value == "" ){
+    if((email.value.trim() == "") || (password.value.trim() == "" ) ){ // alanlar boş olamaz
         Swal.fire({
             title: 'Uyarı!',
-            html: 'Email Yok',
+            html: 'Lütfen Boş Alan Bırakmayınız!',
             icon: 'warning',
             confirmButtonText: 'Tamam'
         
         });
-    }else if (!regexPattern.test(email.value)) {
+    }else if (!regexPattern.test(email.value.trim())) { // email alanına girilen değer regex ile karşılaştır.
         Swal.fire({
             title: 'Uyarı!',
             html: 'Email Hatalı',
@@ -27,7 +27,7 @@ function gonder(){
             confirmButtonText: 'Tamam'
         
         });
-    }else if (password.value.length < 6) {
+    }else if (password.value.trim().length < 6) { // şifre 6 karakterden az ise
         Swal.fire({
             title: 'Uyarı!',
             html: 'Şifre 6 Karakterden Az Olamaz!',
@@ -35,14 +35,14 @@ function gonder(){
             confirmButtonText: 'Tamam'
         
         });
-     }else{
+     }else{ // koşullar uygunsa sayfa yönlendir.
         Swal.fire({
             title: 'Başarılı',
             html: 'Sayfa Yenilenecek!',
             icon: 'success',
             confirmButtonText: 'Tamam'
         
-        }).then(function(){
+        }).then(function(){ // tamam butonu sonrası yönlendirmeyi yap.
             location.replace("index.html")
         });
         
