@@ -9,7 +9,7 @@ loginForm.addEventListener("submit", function(e){ // formun std submit olma duru
 function gonder(){ // login butonuna basılınca çalışan fonksiyon
     let password = document.getElementsByName("password")[0];// şifre alanı
 
-    const regexPattern = /\S+\@+\S+\.+\S{3}/ // regex paternim. 
+    const regexPattern = /\S+\@+\S+\.+\S{3}/ // regex paternim. "com" 
 
     if((email.value.trim() == "") || (password.value.trim() == "" ) ){ // alanlar boş olamaz
         Swal.fire({
@@ -42,7 +42,7 @@ function gonder(){ // login butonuna basılınca çalışan fonksiyon
             icon: 'success',
             confirmButtonText: 'Tamam'
         
-        }).then(function(){ // tamam butonu sonrası yönlendirmeyi yap.
+        }).then(function(){ // tamam butonuna bastıktan sonra yönlendirmeyi yap. aksi halde modal çıkıyor ve tamam denilemeden sayfa yenileme çalışıyor.
             location.replace("index.html")
         });
         
