@@ -93,3 +93,20 @@ button:hover{
     box-shadow: 0 5px 5px rgba(0,0,0,0.5);
 
 }
+
+.git{
+    position: absolute;
+    top: 2%;
+    left: 2%;
+}
+
+.Gitbutton{
+    font-size: 1rem;
+    padding: 5px;
+    background-color: black;
+    color:white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: -1px 3px 10px 1px #000000;
+}
